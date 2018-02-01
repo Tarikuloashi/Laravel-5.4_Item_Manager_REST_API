@@ -78,7 +78,7 @@
       function deleteItem(id){
         $.ajax({
           method:'POST',
-          url:'http://127.0.0.1:8000/api/items/'+id,
+          url:'http:/api/items/'+id,
           data:{_method: 'DELETE'}
         }).done(function(item){
           alert('Item Removed');
@@ -90,7 +90,7 @@
       function addItem(text, body){
         $.ajax({
           method:'POST',
-          url:'http://127.0.0.1:8000/api/items',
+          url:'http:/api/items',
           data:{text:text, body: body}
         }).done(function(item){
           alert('Item # '+item.id+' added');
@@ -102,7 +102,7 @@
       function getItems(){
         $.ajax({
           type:"get",
-          url:'http://127.0.0.1:8000/api/items',
+          url:'http:/api/items',
           dataType:'json'
         }).done(function(items){
           var output = '';
@@ -111,7 +111,7 @@
               <li class="list-group-item">
               <strong>${item.text}: </strong>${item.body}
               .<a href="#" class="deleteLink" data-id="${item.id}">Delete</a>
-               
+
 
               </li>
             `;
